@@ -11,7 +11,9 @@ import {
   CreateEventComponent,
   EventRouteActivator,
   EventListResolver,
-  CreateSessionComponent,SessionListComponent
+  CreateSessionComponent,
+  SessionListComponent,
+  DurationPipe,
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -34,6 +36,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
