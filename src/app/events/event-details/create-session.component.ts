@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ISession,restrictedWords } from '../shared/index';
+import { ISession, restrictedWords } from '../shared/index';
 
 @Component({
   templateUrl: './create-session.component.html',
@@ -16,13 +16,13 @@ import { ISession,restrictedWords } from '../shared/index';
       .error textarea {
         background-color: #e3c3c5;
       }
-      .error ::webkit-input-placeholder {
-        color: #999;
-      }
-      .error ::-moz-placeholder {
+      .error ::-webkit-input-placeholder {
         color: #999;
       }
       .error :-moz-placeholder {
+        color: #999;
+      }
+      .error ::-moz-placeholder {
         color: #999;
       }
       .error :ms-input-placeholder {
@@ -59,11 +59,9 @@ export class CreateSessionComponent implements OnInit {
     });
   }
 
-
-
-  saveSession(formValues: any) {
+  saveSession(formValues) {
     let session: ISession = {
-      id: 0,
+      id: undefined,
       name: formValues.name,
       presenter: formValues.presenter,
       duration: +formValues.duration,
