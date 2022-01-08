@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { IEvent } from './shared/index';
 
 @Component({
   selector: 'event-thumbnail',
   template: ` <div
-    [routerLink]="['/events', event.id]"
+    [routerLink]="['/events', event?.id]"
     class="well hoverwell thumbnail"
   >
     <h2>{{ event?.name }}</h2>
@@ -20,7 +21,7 @@ import { Component, Input } from '@angular/core';
       <span class="pad-left"></span>
       <span>{{ event?.location?.city }}, {{ event?.location?.country }}</span>
     </div>
-    <div *ngIf="event.onlineUrl">Online URL: {{ event.onlineUrl }}</div>
+    <div *ngIf="event?.onlineUrl">Online URL: {{ event?.onlineUrl }}</div>
   </div>`,
   styles: [
     `
@@ -43,7 +44,7 @@ import { Component, Input } from '@angular/core';
   ],
 })
 export class EventThumbnailComponent {
-  @Input() event: any;
+  @Input() event: IEvent | undefined;
 
   getStartTimeClass() {
     if (this.event && this.event.time === '8:00 am') return ['green', 'bold'];
