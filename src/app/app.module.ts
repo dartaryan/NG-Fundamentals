@@ -21,6 +21,9 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
+  UpvoteComponent,
+  VoterService,
+  LocationValidator,
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -30,7 +33,7 @@ import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as toastr from 'toastr';
-
+import {} from './events/event-details/voter.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,8 @@ import * as toastr from 'toastr';
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidator,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,7 @@ import * as toastr from 'toastr';
     AuthService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: $ },
+    VoterService,
   ],
   bootstrap: [EventsAppComponent],
 })
