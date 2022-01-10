@@ -16,7 +16,7 @@ import {
   EventsListComponent,
   EventService,
   CreateEventComponent,
-  EventRouteActivator,
+  EventResolver,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
@@ -33,7 +33,7 @@ import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as toastr from 'toastr';
-import {} from './events/event-details/voter.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -58,10 +58,11 @@ import {} from './events/event-details/voter.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   providers: [
     EventService,
-    EventRouteActivator,
+    EventResolver,
     EventListResolver,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     AuthService,

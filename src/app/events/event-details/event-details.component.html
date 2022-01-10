@@ -81,7 +81,7 @@
     </div>
   </div>
 
-  <session-list
+  <session-list [eventId]="event?.id"
     [filterBy]="filterBy"
     [sortBy]="sortBy"
     *ngIf="!addMode"
